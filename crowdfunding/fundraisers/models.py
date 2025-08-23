@@ -11,8 +11,8 @@ class Fundraiser(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(
         get_user_model(),
-        related_name='owned_fundraisers',
-        on_delete=models.CASCADE
+        related_name='owned_fundraisers', # this provides a convenient reverse lookup name to access all the fundraisers created by a user by calling user.owned_fundraisers.all()
+        on_delete=models.CASCADE # if users are deleted, all their associated fundraisers would be deleted 
     )
 
 class Pledge(models.Model):
@@ -27,6 +27,5 @@ class Pledge(models.Model):
     supporter = models.ForeignKey(
         get_user_model(),
         related_name='pledges',
-        on_delete=models.CASCADE
-        # if users are deleted, the pledges would be deleted
+        on_delete=models.CASCADE # if users are deleted, all their associated pledges would be deleted
     )

@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fundraisers.urls')),
     path('', include('users.urls')),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api-auth/', include('rest_framework.urls')), # By including this, we can get pre-built in login/logout URLs that our API can use for authentication
 ]

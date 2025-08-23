@@ -28,13 +28,13 @@ class CustomUserList(APIView):
             )
 
 class CustomUserDetail(APIView):
-    def get_object(self, pk):
-        try:
+    def get_object(self, pk): # a helper method to retrieve a signle CustomUser instance from the database
+        try: # try ... expect: error handling
             return CustomUser.objects.get(pk=pk)
         except CustomUser.DoesNotExist:
             raise Http404
         
-    def get(self, request, pk):
-        user = self.get_object(pk)
+    def get(self, request, pk): # main view method to handle the HTTP GET request
+        user = self.get_object(pk) # call the get_object helper method to get the data
         serializer = CustomUserSerializer(user)
         return Response(serializer.data)

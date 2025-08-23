@@ -7,9 +7,12 @@ class CustomUserSerializer(serializers.ModelSerializer):
         fields = '__all__'
         extra_kwargs = {'password': {'write_only': True}}
         # kwargs: keyword arguments
-        # 'write_only': 
+        # 'write_only': security and design feature that controls how password is handled in serializers
+        # write_only: accept input, never output; "read_only": accept output, never input
+    
 
     def create(self, validated_data):
+     # purpose of defining the function of create: to protect password
         return CustomUser.objects.create_user(**validated_data)
-    # **: related to kwargs
-    # purpose of defining the function of create: to protect password
+    # create_user() automatically hashes passwords
+    # "**" operator: related to kwargs, unpack the dictionary into keyword arguments
