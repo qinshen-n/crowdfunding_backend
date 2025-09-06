@@ -20,6 +20,7 @@ class PledgeSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         instance.amount = validated_data.get('amount', instance.amount)
         instance.comment = validated_data.get('comment', instance.comment)
+        instance.date_made = validated_data.get('date_made', instance.date_made)
         instance.anonymous = validated_data.get('anonymous', instance.anonymous)
         # Note: We do not allow the fundraiser or supporter to be changed via an update
         instance.save()
@@ -31,11 +32,12 @@ class FundraiserDetailSerializer(FundraiserSerializer):
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title) # if 'title' does not exist in this dictionary, it would return the current value of instance
         instance.description = validated_data.get('description', instance.description)
-        instance.description = validated_data.get('description', instance.description)
-        instance.goal = validated_data.get('goal', instance.goal)
+        instance.goal_amount = validated_data.get('goal_amount', instance.goal_amount)
         instance.image = validated_data.get('image', instance.image)
         instance.is_open = validated_data.get('is_open', instance.is_open)
         instance.date_created = validated_data.get('date_created', instance.date_created)
+        instance.start_date = validated_data.get('start_date', instance.start_date)
+        instance.end_date = validated_data.get('start_date', instance.end_date)
         instance.owner = validated_data.get('owner', instance.owner)
         instance.save()
         return instance
