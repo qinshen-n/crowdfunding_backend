@@ -25,6 +25,11 @@ class PledgeSerializer(serializers.ModelSerializer):
         # Note: We do not allow the fundraiser or supporter to be changed via an update
         instance.save()
         return instance
+    
+class PledgeUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = apps.get_model('fundraisers.Pledge')
+        fields = ['comment']
 
 class FundraiserDetailSerializer(FundraiserSerializer):
     pledges = PledgeSerializer(many=True, read_only=True)
