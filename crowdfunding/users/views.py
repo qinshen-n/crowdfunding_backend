@@ -38,6 +38,26 @@ class CustomUserDetail(APIView):
         serializer = CustomUserSerializer(user)
         return Response(serializer.data)
     
+    def put(self, request, pk):
+        # Retrieve the user instance to be updated
+        user = self.get_object(pk)
+        # Instantiate the serializer with the existing user instance and new data
+        serializer = CustomUserSerializer(
+            instance=user,
+            data=request.data,
+            partial=True
+        )
+
+        # Validate the new data and save the updated user
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(
+                serializer.errors,
+                status=status.HTTP_400_BAD_REQUEST
+            )
+    
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class (
