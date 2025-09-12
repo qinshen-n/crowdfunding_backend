@@ -54,15 +54,13 @@ The intended audience of this app are divided into three key segments: project c
 
 ### API Usage Guide
 This guide provides step-by-step instructions for interacting with the core functionality of the Conservation Catalyst API.
-- Register a New User
-  To create a new user account, send a POST request to the /users/ endpoint. This is the first step to becoming a member and gaining access to authenticated features.
+- Register a New User: To create a new user account, send a POST request to the /users/ endpoint. This is the first step to becoming a member and gaining access to authenticated features.
     - Endpoint: /users/
     - Method: POST
     - Boday Data: The request body should be a JSON object containing the new user's username, email, and password.
     - Response: A successful response will return a 201 Created status code and the new user's data.
 
-- Create a New Fundraiser
-  Creating a new fundraiser requires a valid authentication token. First, register or log in to get a token, then include it in the Authorization header of your POST request.
+- Create a New Fundraiser: Creating a new fundraiser requires a valid authentication token. First, register or log in to get a token, then include it in the Authorization header of your POST request.
     - Endpoint: /fundraisers/
     - Method: POST
     - Authorization: Include the token in the Authorization header using the Bearer Token scheme.
@@ -74,10 +72,14 @@ This guide provides step-by-step instructions for interacting with the core func
 
 ### Screenshots
 #### Fundraisers
+GET /fundraisers/ - Return all fundraisers
 ![GET /fundraisers/ - Return all fundraisers](Screenshots/:fundraisers:%20-%20Return%20all%20fundraisers.png)
+POST /fundraisers/ - Create new fundraiser
 ![POST /fundraisers/ - Create new fundraiser](Screenshots/:fundraisers:%20-%20Create%20new%20fundraiser.png)
+GET /fundraisers/<pk>/ - Return one fundraiser
 ![GET /fundraisers/<pk>/ - Return one fundraiser](Screenshots/:fundraisers:<pk>:%20-%20Return%20one%20fundraiser.png)
-![PUT /fundraisers/<pk>/ - Upda](Screenshots/:fundraisers:<pk>:%20-%20Update%20one%20fundraiser.png)
+PUT /fundraisers/<pk>/ - Update one fundraiser
+![PUT /fundraisers/<pk>/ - Update one fundraiser](Screenshots/:fundraisers:<pk>:%20-%20Update%20one%20fundraiser.png)
 
 #### Pledges
 ![GET /pledges/ - Return all pledges](Screenshots/:pledges:%20-%20Return%20all%20pledges.png)
