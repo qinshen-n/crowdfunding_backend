@@ -1,4 +1,4 @@
-from rest_framework import status
+from rest_framework import status, permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import Http404
@@ -7,7 +7,16 @@ from .serializers import CustomUserSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 
+class IsUserOwner(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        return obj == request.user
+
+
 class CustomUserList(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
     def get(self, request):
         users = CustomUser.objects.all()
         serializer = CustomUserSerializer(users, many=True)
@@ -28,6 +37,7 @@ class CustomUserList(APIView):
             )
 
 class CustomUserDetail(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsUserOwner]
     def get_object(self, pk): # a helper method to retrieve a signle CustomUser instance from the database
         try: # try ... expect: error handling
             return CustomUser.objects.get(pk=pk)
