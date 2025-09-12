@@ -72,24 +72,33 @@ This guide provides step-by-step instructions for interacting with the core func
 
 ### Screenshots
 #### Fundraisers
-GET /fundraisers/ - Return all fundraisers
+GET Method - Return all fundraisers
 ![GET /fundraisers/ - Return all fundraisers](Screenshots/:fundraisers:%20-%20Return%20all%20fundraisers.png)
-POST /fundraisers/ - Create new fundraiser
+POST Method - Create new fundraiser
 ![POST /fundraisers/ - Create new fundraiser](Screenshots/:fundraisers:%20-%20Create%20new%20fundraiser.png)
-GET /fundraisers/<pk>/ - Return one fundraiser
+GET Method - Return one fundraiser
 ![GET /fundraisers/<pk>/ - Return one fundraiser](Screenshots/:fundraisers:<pk>:%20-%20Return%20one%20fundraiser.png)
-PUT /fundraisers/<pk>/ - Update one fundraiser
+PUT Method - Update one fundraiser
 ![PUT /fundraisers/<pk>/ - Update one fundraiser](Screenshots/:fundraisers:<pk>:%20-%20Update%20one%20fundraiser.png)
 
 #### Pledges
+GET Method - Return all pledges
 ![GET /pledges/ - Return all pledges](Screenshots/:pledges:%20-%20Return%20all%20pledges.png)
+POST Method - Create new pledge
 ![POST /pledges/ - Create new pledge](Screenshots/:pledges:%20-%20Create%20new%20pledge.png)
+PUT Method - Update one pledge
 ![PUT /pledges/<pk>/ - Update one pledge](Screenshots/:pledges:<pk>:%20-%20Update%20one%20pledge.png)
+GET Method - Return one pledge
 ![GET /pledges/<pk> - Return one pledge/](Screenshots/:pledges:%20-%20Return%20one%20pledge.png)
 
 #### Users
+GET Method - Return all users
 ![GET /users/ - Return all users](Screenshots/:users:%20-%20Return%20all%20users.png)
+POST Method - Create new user
 ![POST /users/ - Create new user](Screenshots/:users:%20-%20Create%20new%20user.png)
+GET Method - Return one user
 ![GET /users/<pk>/ - Return one user](Screenshots/:users:%20-%20Return%20one%20user.png)
+PUT Method - Update one user
 ![PUT /users/<pk>/ - Update one user](Screenshots/:users:%20<pk>:%20-%20Update%20one%20user.png)
+POST Method - Get User Token
 ![POST /users/<pk>/ - Get User Token](Screenshots/:api-token-auth:%20-%20Get%20User%20Token%20(Qin).png)
